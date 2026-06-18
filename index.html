@@ -20,17 +20,18 @@
     /* ===== TYPE SCALE ===== */
     /* Press Start 2P track — pixel font, renders small, so each step is sized up.
        Used ONLY for: page title, section headers, tags, labels, buttons. */
-    --px-title:1.5rem;   /* page H1 — the single largest element */
-    --px-head:.95rem;    /* section headers (part-head h2) */
-    --px-sub:.78rem;     /* qr-card titles, finish h2 */
-    --px-btn:.8rem;      /* all buttons */
-    --px-tag:.62rem;     /* qtags, pills, field labels, counter, badge nums */
-    --px-tiny:.54rem;    /* logout, tiniest meta */
+    --px-title:1.2rem;   /* (1) page H1 */
+    --px-head:1.15rem;   /* (2) section headers (part-head h2) — larger */
+    --px-sub:.95rem;     /* (2) qr-card titles, finish h2, P badge — larger */
+    --px-btn:1.0rem;     /* (6) Back/Next buttons — larger */
+    --px-tag:1.0rem;     /* qtags(Warm-up!), pills, progress label */
+    --px-tiny:.92rem;    /* logout(Log out) */
+    --px-counter:.95rem;/* the _ / 20 counter(-2) */
 
     /* Noto Sans / KR track — body & content. */
     --t-read:1.3rem;     /* Korean a student taps/reads: chips, MC options */
     --t-q:1.15rem;       /* card question prompts (qtext, say-line) */
-    --t-body:1rem;       /* instructions, inputs, keyword Korean, body */
+    --t-body:1.2rem;     /* (4) instructions, inputs, keyword Korean, body — 2 sizes larger */
     --t-small:.9rem;     /* secondary / helper text */
   }
   html{height:100%;height:-webkit-fill-available;}
@@ -52,12 +53,12 @@
       linear-gradient(90deg,var(--neon-blue),var(--neon-pink),var(--neon-yellow)) top/100% 4px no-repeat,
       var(--card-bg);
     border:2px solid var(--border-glow);border-radius:2px;
-    box-shadow:4px 4px 0 rgba(0,0,0,0.8);
+    box-shadow:7px 7px 0 rgba(0,0,0,0.8);
     padding:32px 22px;text-align:center;
   }
   h1{
     font-family:'Press Start 2P',cursive;font-size:var(--px-title);line-height:1.7;margin:0;
-    color:#fff;text-shadow:var(--retro-shadow);letter-spacing:1px;
+    color:#fff;text-shadow:var(--retro-shadow),5px 5px 0 rgba(0,0,0,0.6);letter-spacing:1px;
   }
   .sub{font-size:var(--t-small);color:var(--neon-yellow);font-weight:700;margin-top:10px;}
 
@@ -65,7 +66,7 @@
   /* equal vertical rhythm: 24px above & below the bar, and above the section label */
   .progress-bar{
     height:14px;background:rgba(0,0,0,.4);border:2px solid var(--border-glow);border-radius:2px;
-    margin:24px 0;overflow:hidden;padding:0;box-shadow:2px 2px 0 rgba(0,0,0,0.8);
+    margin:24px 0;overflow:hidden;padding:0;box-shadow:4px 4px 0 rgba(0,0,0,0.8);
   }
   .progress-fill{
     height:100%;width:0;border-radius:0;
@@ -77,6 +78,13 @@
     font-family:'Press Start 2P',cursive;color:var(--neon-yellow);font-size:var(--px-tag);
     text-shadow:var(--retro-shadow);
   }
+  /* "All done!" / section label: force dead-center, with equal space above and
+     below so it sits centered between the progress bar and the content card */
+  .ptext-label{
+    display:flex;align-items:center;justify-content:center;
+    width:100%;margin:0 auto 24px;text-align:center;
+  }
+  #counter{font-size:var(--px-counter);}
 
   /* ===== SECTIONS ===== */
   /* equal 24px gaps between progress label -> pill -> header -> instruction */
@@ -86,7 +94,7 @@
     display:flex;align-items:center;gap:14px;
     background:linear-gradient(135deg,#2a2a4a 0%,#1a1a2e 100%);color:#fff;
     border:2px solid var(--neon-blue);border-radius:2px;padding:16px 18px;
-    box-shadow:4px 4px 0 rgba(0,0,0,0.8);
+    box-shadow:7px 7px 0 rgba(0,0,0,0.8);
   }
   .part-head .num{
     background:linear-gradient(135deg,var(--neon-blue),#0099dd);color:#fff;
@@ -100,8 +108,8 @@
 
   /* ===== INSTRUCTION / PILL ===== */
   .instr{
-    font-size:var(--t-body);color:var(--ink);font-weight:500;background:rgba(65,192,255,.08);
-    border:2px solid var(--neon-blue);border-radius:2px;padding:14px 16px;line-height:1.7;box-shadow:4px 4px 0 rgba(0,0,0,0.8);
+    font-size:1.1rem;color:var(--ink);font-weight:500;background:rgba(65,192,255,.08);
+    border:2px solid var(--neon-blue);border-radius:2px;padding:14px 16px;line-height:1.7;box-shadow:7px 7px 0 rgba(0,0,0,0.8);
   }
   .instr b{color:var(--neon-yellow);}
   .practice-pill{
@@ -109,17 +117,17 @@
     font-family:'Press Start 2P',cursive;font-size:var(--px-tag);color:#fff;line-height:1.6;
     background:linear-gradient(135deg,var(--neon-green),#38a169);
     border:2px solid rgba(255,255,255,.25);border-radius:2px;
-    padding:9px 14px;text-shadow:var(--retro-shadow);box-shadow:2px 2px 0 rgba(0,0,0,0.8);
+    padding:9px 14px;text-shadow:var(--retro-shadow);box-shadow:4px 4px 0 rgba(0,0,0,0.8);
   }
 
   /* ===== START BANNER ===== */
   .start-banner{
     text-align:center;background:linear-gradient(135deg,var(--neon-pink),#dd4477);
     color:#fff;border:2px solid rgba(255,255,255,.25);border-radius:2px;padding:20px 16px;
-    box-shadow:4px 4px 0 rgba(0,0,0,0.8);
+    box-shadow:7px 7px 0 rgba(0,0,0,0.8);
   }
-  .start-banner h2{font-family:'Press Start 2P',cursive;font-size:var(--px-head);line-height:1.7;margin:0 0 8px;text-shadow:var(--retro-shadow);}
-  .start-banner p{margin:0;font-weight:700;font-size:var(--t-body);}
+  .start-banner h2{font-family:'Press Start 2P',cursive;font-size:var(--px-head);line-height:1.7;margin:0 0 8px;text-shadow:var(--retro-shadow),5px 5px 0 rgba(0,0,0,0.6);}
+  .start-banner p{margin:0;font-weight:700;font-size:var(--t-body);text-shadow:var(--retro-shadow);}
 
   /* ===== CARDS ===== */
   /* rainbow stripe is a layered background -> always clips to the rounded corners.
@@ -130,10 +138,10 @@
       var(--card-bg);
     border:2px solid var(--border-glow);border-radius:2px;
     padding:28px 18px 20px;margin-top:30px;position:relative;
-    box-shadow:4px 4px 0 rgba(0,0,0,0.8);
+    box-shadow:7px 7px 0 rgba(0,0,0,0.8);
   }
   .rec-card{
-    border-color:var(--neon-purple);box-shadow:4px 4px 0 rgba(0,0,0,0.8);
+    border-color:var(--neon-purple);box-shadow:7px 7px 0 rgba(0,0,0,0.8);
     background:
       linear-gradient(90deg,var(--neon-purple),var(--neon-pink)) top/100% 3px no-repeat,
       var(--card-bg);
@@ -141,7 +149,7 @@
   .qtag{
     position:absolute;top:-13px;left:18px;background:linear-gradient(135deg,var(--neon-pink),#dd4477);color:#fff;
     font-family:'Press Start 2P',cursive;padding:7px 13px;border-radius:2px;
-    font-size:var(--px-tag);line-height:1;text-shadow:var(--retro-shadow);box-shadow:2px 2px 0 rgba(0,0,0,0.8);z-index:2;
+    font-size:var(--px-tag);line-height:1;text-shadow:var(--retro-shadow);box-shadow:4px 4px 0 rgba(0,0,0,0.8);z-index:2;
   }
   .rec-card .qtag{background:linear-gradient(135deg,var(--neon-purple),#7a52cc);}
   .qtext{font-family:'Noto Sans','Noto Sans KR',sans-serif;font-size:var(--t-q);font-weight:700;margin:4px 0;color:#fff;line-height:1.55;}
@@ -152,7 +160,7 @@
   .options{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px;}
   @media(max-width:420px){.options{grid-template-columns:1fr;}}
   .opt{
-    border:2px solid rgba(255,255,255,.12);border-radius:2px;background:rgba(0,0,0,.3);padding:14px;box-shadow:2px 2px 0 rgba(0,0,0,0.8);
+    border:2px solid rgba(255,255,255,.12);border-radius:2px;background:rgba(0,0,0,.3);padding:14px;box-shadow:4px 4px 0 rgba(0,0,0,0.8);
     display:flex;align-items:center;gap:12px;cursor:pointer;font-family:'Noto Sans KR',sans-serif;
     font-weight:700;font-size:var(--t-read);color:#fff;transition:all .2s ease;user-select:none;
   }
@@ -164,14 +172,14 @@
   }
   .opt .krchar{flex:1;}
   .opt:hover{border-color:var(--neon-blue);background:rgba(65,192,255,.12);transform:translateY(-2px);}
-  .opt.selected{border-color:var(--neon-blue);background:rgba(65,192,255,.2);box-shadow:2px 2px 0 rgba(0,0,0,0.8);}
+  .opt.selected{border-color:var(--neon-blue);background:rgba(65,192,255,.2);box-shadow:4px 4px 0 rgba(0,0,0,0.8);}
 
   /* ===== CHARACTER CHIPS ===== */
   .char-strip{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;}
   .char-chip{
     font-family:'Noto Sans KR',sans-serif;font-weight:700;font-size:var(--t-read);color:#fff;
     background:rgba(0,0,0,.3);border:2px solid var(--neon-blue);
-    border-radius:2px;padding:8px 14px;min-width:46px;text-align:center;box-shadow:2px 2px 0 rgba(0,0,0,0.8);
+    border-radius:2px;padding:8px 14px;min-width:46px;text-align:center;box-shadow:4px 4px 0 rgba(0,0,0,0.8);
   }
   .char-chip:nth-child(3n){border-color:var(--neon-pink);}
   .char-chip:nth-child(3n+1){border-color:var(--neon-green);}
@@ -179,13 +187,13 @@
   /* ===== SENTENCE BATCHES ===== */
   .batch-wrap{margin-top:14px;display:flex;flex-direction:column;gap:14px;}
   .sent-block{
-    background:var(--card-bg);border:2px solid var(--border-glow);border-radius:2px;padding:16px;box-shadow:4px 4px 0 rgba(0,0,0,0.8);
+    background:var(--card-bg);border:2px solid var(--border-glow);border-radius:2px;padding:16px;box-shadow:7px 7px 0 rgba(0,0,0,0.8);
   }
   .sent-block:nth-child(2n){border-color:var(--neon-purple);}
   .say-line{
     background:rgba(255,215,0,.08);
     border:2px solid var(--neon-yellow);border-radius:2px;
-    padding:12px 14px;margin:0 0 12px;font-size:var(--t-q);font-weight:700;color:#fff;box-shadow:2px 2px 0 rgba(0,0,0,0.8);
+    padding:12px 14px;margin:0 0 12px;font-size:var(--t-q);font-weight:700;color:#fff;box-shadow:4px 4px 0 rgba(0,0,0,0.8);
     display:flex;align-items:center;gap:8px;flex-wrap:wrap;line-height:1.5;
   }
   .say-line b{color:var(--neon-yellow);}
@@ -198,26 +206,26 @@
     font-family:'Noto Sans KR',sans-serif;font-weight:700;font-size:var(--t-body);color:var(--neon-yellow);
     background:rgba(0,0,0,.3);border:2px solid var(--border-glow);border-radius:2px;padding:3px 10px;
   }
-  .kw-row .arrow{color:var(--neon-blue);font-weight:900;}
-  .kw-row .en{font-weight:600;color:var(--ink);font-size:var(--t-small);}
+  .kw-row .arrow{color:var(--neon-blue);font-weight:900;font-size:1.2rem;}
+  .kw-row .en{font-weight:600;color:var(--ink);font-size:1.1rem;}
 
   /* ===== QR CARDS ===== */
   .qr-gate{text-align:center;}
   .qr-cards{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin-top:14px;}
   .qr-card{
     background:var(--card-bg);border:2px solid var(--border-glow);border-radius:2px;padding:16px;
-    flex:1 1 240px;max-width:280px;box-shadow:4px 4px 0 rgba(0,0,0,0.8);
+    flex:1 1 240px;max-width:280px;box-shadow:7px 7px 0 rgba(0,0,0,0.8);
   }
   .qr-card.c1{border-color:var(--neon-pink);}
   .qr-card.c2{border-color:var(--neon-blue);}
-  .qr-card h3{font-family:'Press Start 2P',cursive;font-size:var(--px-sub);line-height:1.7;margin:0 0 8px;text-shadow:var(--retro-shadow);}
+  .qr-card h3{font-family:'Press Start 2P',cursive;font-size:1.05rem;line-height:1.7;margin:0 0 8px;text-shadow:var(--retro-shadow);}
   .qr-card.c1 h3{color:var(--neon-pink);}
   .qr-card.c2 h3{color:var(--neon-blue);}
-  .qr-card .who{font-size:var(--t-small);font-weight:700;color:var(--ink-soft);margin-bottom:10px;}
+  .qr-card .who{font-size:1.1rem;font-weight:700;color:var(--ink-soft);margin-bottom:10px;}
   .qr-card img{width:100%;max-width:210px;height:auto;border-radius:2px;border:3px solid #fff;background:#fff;}
   .qr-note{
     margin-top:16px;background:rgba(104,211,145,.1);border:2px solid var(--neon-green);border-radius:2px;
-    padding:13px 15px;font-weight:600;color:var(--ink);font-size:var(--t-body);line-height:1.6;box-shadow:4px 4px 0 rgba(0,0,0,0.8);
+    padding:13px 15px;font-weight:600;color:var(--ink);font-size:var(--t-body);line-height:1.6;box-shadow:7px 7px 0 rgba(0,0,0,0.8);
   }
   .qr-note b{color:var(--neon-green);}
 
@@ -230,32 +238,42 @@
   .btn{
     font-family:'Press Start 2P',cursive;font-size:var(--px-btn);border:none;border-radius:2px;padding:16px 26px;
     cursor:pointer;color:#fff;text-shadow:var(--retro-shadow);
-    transition:all 0.1s;position:relative;box-shadow:3px 3px 0 rgba(0,0,0,0.7);
+    transition:all 0.1s;position:relative;box-shadow:6px 6px 0 rgba(0,0,0,0.7);
   }
-  .btn:hover:not(:disabled){transform:translate(-1px,-1px);box-shadow:4px 4px 0 rgba(0,0,0,0.7);filter:brightness(1.1);}
-  .btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 rgba(0,0,0,0.7);}
+  .btn:hover:not(:disabled){transform:translate(-2px,-2px);box-shadow:8px 8px 0 rgba(0,0,0,0.7);filter:brightness(1.1);}
+  .btn:active{transform:translate(3px,3px);box-shadow:2px 2px 0 rgba(0,0,0,0.7);}
   .btn.next{background:linear-gradient(180deg,var(--neon-blue),#0099dd);}
   .btn.back{background:linear-gradient(180deg,#4a4a6e,#363652);}
   .btn:disabled{opacity:.45;cursor:not-allowed;}
 
   /* ===== FINISH ===== */
   .finish-card{
-    text-align:center;background:var(--card-bg);border:3px solid var(--neon-yellow);border-radius:2px;
-    padding:34px 22px;box-shadow:4px 4px 0 rgba(0,0,0,0.8);
+    text-align:center;
+    background:
+      linear-gradient(90deg,var(--neon-blue),var(--neon-pink),var(--neon-yellow)) top/100% 6px no-repeat,
+      linear-gradient(160deg,rgba(255,215,0,.14),rgba(65,192,255,.06) 55%,rgba(0,0,0,.25)),
+      var(--card-bg);
+    border:3px solid var(--neon-yellow);border-radius:2px;
+    padding:clamp(40px,7vw,64px) clamp(24px,5vw,40px);
+    box-shadow:10px 10px 0 rgba(0,0,0,0.8);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;
   }
-  .finish-card h2{font-family:'Press Start 2P',cursive;color:#fff;font-size:var(--px-head);line-height:1.7;margin:0 0 14px;text-shadow:var(--retro-shadow);}
-  .finish-card p{color:var(--ink-soft);font-size:var(--t-body);line-height:1.7;}
+  .finish-card h2{
+    font-family:'Press Start 2P',cursive;color:#fff;font-size:var(--px-head);line-height:1.7;margin:0;
+    text-shadow:var(--retro-shadow),5px 5px 0 rgba(0,0,0,0.6);
+  }
+  .finish-card p{color:#fff;font-size:var(--t-body);line-height:1.7;margin:0;max-width:34ch;}
 
   /* ===== PRINT BUTTON ===== */
   .print-hint{text-align:center;margin-top:30px;}
   .print-btn{
-    font-family:'Press Start 2P',cursive;font-size:var(--px-tag);
+    font-family:'Press Start 2P',cursive;font-size:.8rem;
     background:linear-gradient(180deg,var(--neon-purple),#7a52cc);color:#fff;
     border:none;border-radius:2px;padding:13px 20px;cursor:pointer;text-shadow:var(--retro-shadow);
-    transition:all 0.1s;position:relative;box-shadow:3px 3px 0 rgba(0,0,0,0.7);
+    transition:all 0.1s;position:relative;box-shadow:6px 6px 0 rgba(0,0,0,0.7);
   }
-  .print-btn:hover{transform:translate(-1px,-1px);box-shadow:4px 4px 0 rgba(0,0,0,0.7);filter:brightness(1.1);}
-  .print-btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 rgba(0,0,0,0.7);}
+  .print-btn:hover{transform:translate(-2px,-2px);box-shadow:8px 8px 0 rgba(0,0,0,0.7);filter:brightness(1.1);}
+  .print-btn:active{transform:translate(3px,3px);box-shadow:2px 2px 0 rgba(0,0,0,0.7);}
 
   @media print{
     body{background:#fff;color:#000;padding:0;}
@@ -266,7 +284,7 @@
 
   /* ===== RESPONSIVE ===== */
   @media(max-width:520px){
-    :root{--px-title:1.15rem;--px-head:.8rem;--t-read:1.2rem;--t-q:1.05rem;}
+    :root{--px-title:1.1rem;--px-head:1.0rem;--px-sub:.85rem;--px-btn:.9rem;--px-tag:.92rem;--px-counter:.85rem;--t-read:1.2rem;--t-q:1.05rem;--t-body:1.1rem;}
   }
 
   /* ========== LOGIN GATE ========== */
@@ -276,43 +294,54 @@
   }
   .gate-card{
     background:
-      linear-gradient(90deg,var(--neon-blue),var(--neon-pink),var(--neon-yellow)) top/100% 4px no-repeat,
+      linear-gradient(90deg,var(--neon-blue),var(--neon-pink),var(--neon-yellow)) top/100% 6px no-repeat,
       var(--card-bg);
-    border:2px solid var(--neon-blue);border-radius:2px;
-    box-shadow:4px 4px 0 rgba(0,0,0,0.8);
-    padding:34px 24px;max-width:400px;width:100%;text-align:center;
+    border:3px solid var(--neon-blue);border-radius:2px;
+    box-shadow:10px 10px 0 rgba(0,0,0,0.8);
+    padding:clamp(24px,5vw,50px) clamp(18px,4vw,36px);max-width:600px;width:100%;text-align:center;
   }
-  .gate-card h1{font-size:var(--px-head);line-height:1.7;margin:0 0 14px;}
-  .gate-card .sub{margin:0 0 20px;font-size:var(--t-body);color:var(--neon-yellow);}
+  .gate-card h1{font-size:clamp(.95rem,3.5vw,1.3rem);line-height:1.7;margin:0 0 clamp(14px,2.5vw,22px);}
+  .gate-card .sub{margin:0 0 clamp(20px,3vw,30px);font-size:clamp(.92rem,2.6vw,1.15rem);color:var(--neon-yellow);line-height:1.6;}
   .gate-field{
-    background:rgba(0,0,0,.3);border:2px solid var(--border-glow);border-radius:2px;padding:12px 14px;
-    display:flex;align-items:center;gap:10px;margin-bottom:12px;text-align:left;box-shadow:2px 2px 0 rgba(0,0,0,0.8);
+    background:rgba(0,0,0,.3);border:2px solid var(--border-glow);border-radius:2px;padding:clamp(12px,2.5vw,18px) clamp(14px,3vw,20px);
+    display:flex;align-items:center;gap:clamp(10px,2vw,14px);margin-bottom:clamp(12px,2.5vw,18px);text-align:left;box-shadow:4px 4px 0 rgba(0,0,0,0.8);
   }
-  .gate-field label{font-family:'Press Start 2P',cursive;color:var(--neon-blue);font-size:var(--px-tag);white-space:nowrap;text-shadow:var(--retro-shadow);}
+  .gate-field label{font-family:'Press Start 2P',cursive;color:var(--neon-blue);font-size:clamp(.62rem,1.9vw,.82rem);white-space:nowrap;text-shadow:var(--retro-shadow);}
   .gate-field input{
-    border:none;border-bottom:2px solid var(--border-glow);background:transparent;flex:1;
-    font-family:var(--vt),sans-serif;font-size:var(--t-body);color:#fff;padding:4px 2px;outline:none;min-width:0;
+    border:none;border-bottom:2px solid var(--border-glow);background:#0a0a1a;flex:1;
+    font-family:var(--vt),sans-serif;font-size:clamp(.92rem,2.6vw,1.15rem);color:#fff;padding:clamp(5px,1.5vw,8px) clamp(8px,2vw,10px);outline:none;min-width:0;
   }
   .gate-field input:focus{border-bottom-color:var(--neon-blue);}
   .gate-field input::placeholder{color:rgba(255,255,255,.35);}
-  .gate-btn{
-    font-family:'Press Start 2P',cursive;font-size:var(--px-btn);border:none;border-radius:2px;padding:16px 26px;
-    cursor:pointer;color:#fff;text-shadow:var(--retro-shadow);width:100%;margin-top:6px;
-    background:linear-gradient(180deg,var(--neon-green),#38a169);
-    transition:all 0.1s;position:relative;box-shadow:3px 3px 0 rgba(0,0,0,0.7);
+  /* prevent Chrome/Safari autofill from forcing a white/yellow background */
+  .gate-field input:-webkit-autofill,
+  .gate-field input:-webkit-autofill:hover,
+  .gate-field input:-webkit-autofill:focus{
+    -webkit-text-fill-color:#fff;
+    -webkit-box-shadow:0 0 0 1000px #0a0a1a inset;
+    box-shadow:0 0 0 1000px #0a0a1a inset;
+    caret-color:#fff;
+    transition:background-color 9999s ease-in-out 0s;
   }
-  .gate-btn:hover:not(:disabled){transform:translate(-1px,-1px);box-shadow:4px 4px 0 rgba(0,0,0,0.7);filter:brightness(1.1);}
-  .gate-btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 rgba(0,0,0,0.7);}
+  .gate-btn{
+    font-family:'Press Start 2P',cursive;font-size:clamp(.72rem,2.2vw,.95rem);border:none;border-radius:2px;padding:clamp(15px,3vw,22px) clamp(20px,4vw,30px);
+    cursor:pointer;color:#fff;text-shadow:var(--retro-shadow);width:100%;margin-top:10px;
+    background:linear-gradient(180deg,var(--neon-green),#38a169);
+    transition:all 0.1s;position:relative;box-shadow:6px 6px 0 rgba(0,0,0,0.7);
+  }
+  .gate-btn:hover:not(:disabled){transform:translate(-2px,-2px);box-shadow:8px 8px 0 rgba(0,0,0,0.7);filter:brightness(1.1);}
+  .gate-btn:active{transform:translate(3px,3px);box-shadow:2px 2px 0 rgba(0,0,0,0.7);}
   .gate-btn:disabled{opacity:.6;cursor:not-allowed;}
-  .gate-err{color:var(--neon-red);font-weight:700;font-size:var(--t-small);margin-top:12px;min-height:1.2em;}
+  .gate-err{color:var(--neon-red);font-weight:700;font-size:clamp(.82rem,2.2vw,1.0rem);margin-top:clamp(12px,2.5vw,18px);min-height:1.2em;}
   #appWrap{display:none;}
   .logout-btn{
     position:fixed;top:12px;right:12px;z-index:50;font-family:'Press Start 2P',cursive;font-size:var(--px-tiny);
     background:linear-gradient(180deg,var(--neon-pink),#dd4477);color:#fff;border:none;border-radius:2px;
-    padding:9px 13px;cursor:pointer;text-shadow:var(--retro-shadow);transition:all 0.1s;box-shadow:3px 3px 0 rgba(0,0,0,0.7);
+    padding:9px 13px;cursor:pointer;text-shadow:var(--retro-shadow);transition:all 0.1s;box-shadow:6px 6px 0 rgba(0,0,0,0.7);
   }
-  .logout-btn:hover{transform:translate(-1px,-1px);box-shadow:4px 4px 0 rgba(0,0,0,0.7);filter:brightness(1.1);}
-  .logout-btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 rgba(0,0,0,0.7);}
+  .logout-btn:hover{transform:translate(-2px,-2px);box-shadow:8px 8px 0 rgba(0,0,0,0.7);filter:brightness(1.1);}
+  .logout-btn:active{transform:translate(3px,3px);box-shadow:2px 2px 0 rgba(0,0,0,0.7);}
+
 </style>
 
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
@@ -341,7 +370,7 @@
     <h1>Easy Korean<br>Speaking Test</h1>
   </div>
   <div class="progress-bar"><div class="progress-fill" id="bar"></div></div>
-  <div class="progress-text" id="ptext" style="text-align:center;"></div>
+  <div class="progress-text ptext-label" id="ptext"></div>
 
   <!-- content steps injected here from Firestore -->
   <div id="stepHost"></div>
@@ -358,19 +387,8 @@
 </div>
 
 <script>
-  // ---------- Firebase ----------
-  const firebaseConfig = {
-    apiKey: "AIzaSyBismf9dfYPRPZdimmhZyqxecQnwSL4O8M",
-    authDomain: "koreanlearnin-teams.firebaseapp.com",
-    projectId: "koreanlearnin-teams",
-    storageBucket: "koreanlearnin-teams.firebasestorage.app",
-    messagingSenderId: "437370841898",
-    appId: "1:437370841898:web:6c329a30956d4170a60c53"
-  };
-  firebase.initializeApp(firebaseConfig);
-  const auth = firebase.auth();
-  const db = firebase.firestore();
-
+  // ---------- Grab gate elements + wire the button FIRST ----------
+  // (Done before anything that could throw, so the Enter button is ALWAYS live.)
   const gate = document.getElementById('gate');
   const appWrap = document.getElementById('appWrap');
   const gBtn = document.getElementById('gBtn');
@@ -379,11 +397,13 @@
   const gPass = document.getElementById('gPass');
 
   let booted = false;
+  let auth = null, db = null;
 
   function showErr(msg){ gErr.textContent = msg; }
 
   async function doLogin(){
     showErr('');
+    if(!auth){ showErr('Still loading — try again in a moment.'); return; }
     const email = gEmail.value.trim();
     const pass = gPass.value;
     if(!email || !pass){ showErr('Please enter your email and password.'); return; }
@@ -401,16 +421,40 @@
         'auth/too-many-requests':'Too many tries. Wait a bit and retry.',
         'auth/network-request-failed':'Network problem — check your connection.'
       };
-      showErr(map[e.code] || ('Could not log in: ' + e.code));
+      showErr(map[e.code] || ('Could not log in: ' + (e.code||e.message||e)));
     }
   }
 
+  // Attach handlers immediately — these can never be killed by a later error.
   gBtn.onclick = doLogin;
   gPass.addEventListener('keydown', e=>{ if(e.key==='Enter') doLogin(); });
   gEmail.addEventListener('keydown', e=>{ if(e.key==='Enter') doLogin(); });
 
-  document.getElementById('logoutBtn').onclick = ()=> auth.signOut();
+  // ---------- Firebase init (guarded) ----------
+  if(typeof firebase === 'undefined'){
+    showErr('Could not load the login service. Refresh the page.');
+  } else {
+    try {
+      const firebaseConfig = {
+        apiKey: "AIzaSyBismf9dfYPRPZdimmhZyqxecQnwSL4O8M",
+        authDomain: "koreanlearnin-teams.firebaseapp.com",
+        projectId: "koreanlearnin-teams",
+        storageBucket: "koreanlearnin-teams.firebasestorage.app",
+        messagingSenderId: "437370841898",
+        appId: "1:437370841898:web:6c329a30956d4170a60c53"
+      };
+      firebase.initializeApp(firebaseConfig);
+      auth = firebase.auth();
+      db = firebase.firestore();
+      const lo = document.getElementById('logoutBtn');
+      if(lo) lo.onclick = ()=> auth.signOut();
+      initAuthWatcher();
+    } catch(e){
+      showErr('Login service error: ' + (e.message||e));
+    }
+  }
 
+  function initAuthWatcher(){
   auth.onAuthStateChanged(async user=>{
     if(user){
       gBtn.disabled = false; gBtn.textContent = 'Enter';
@@ -430,6 +474,7 @@
       gate.style.display = 'flex';
     }
   });
+  }
 
   // ---------- Load test content from Firestore, then build ----------
   async function loadTest(){
@@ -501,15 +546,53 @@
     const backBtn = document.getElementById('backBtn');
     const nextBtn = document.getElementById('nextBtn');
 
+    const host = document.getElementById('stepHost');
+    const nav = document.querySelector('.nav');
+    const printHint = document.querySelector('.print-hint');
+    let firstRender = true;
+
+    // FLIP: glide the nav (and the Print button below it) from their previous Y
+    // to their new Y after content swaps. This reads REAL layout after the swap,
+    // so async content (e.g. QR images) can't desync it, and it never locks height.
+    function flipNav(prevTop){
+      const newTop = nav.getBoundingClientRect().top;
+      const delta = prevTop - newTop;
+      if(Math.abs(delta) < 1) return; // nothing meaningful to animate
+      const opts = { duration: 320, easing: 'ease' };
+      const frames = [{ transform: `translateY(${delta}px)` }, { transform: 'translateY(0)' }];
+      // animate nav and the Print button together so they move as one unit
+      nav.animate(frames, opts);
+      if(printHint) printHint.animate(frames, opts);
+    }
+
     function render(){
+      // capture nav position BEFORE the content swap
+      const prevTop = nav.getBoundingClientRect().top;
+
       steps.forEach((s,i)=>s.classList.toggle('active', i===cur));
       const pct = Math.round(((cur+1)/steps.length)*100);
       bar.style.width = pct + '%';
       ptext.textContent = steps[cur].dataset.label || '';
       counter.textContent = (cur+1) + ' / ' + steps.length;
       backBtn.disabled = cur===0;
-      nextBtn.textContent = cur===steps.length-1 ? 'Done' : 'Next →';
+      nextBtn.textContent = 'Next →';
+      // hide Next entirely on the last step (no Done button)
+      nextBtn.style.visibility = (cur===steps.length-1) ? 'hidden' : 'visible';
       window.scrollTo({top:0,behavior:'smooth'});
+
+      if(firstRender){ firstRender = false; return; }
+
+      // animate after layout settles for this frame
+      requestAnimationFrame(()=> flipNav(prevTop));
+
+      // if the new step has images that load late and shift the nav, re-settle it.
+      const imgs = steps[cur].querySelectorAll('img');
+      imgs.forEach(img=>{
+        if(img.complete) return;
+        const beforeTop = nav.getBoundingClientRect().top;
+        img.addEventListener('load', ()=> flipNav(beforeTop), { once:true });
+        img.addEventListener('error', ()=> flipNav(beforeTop), { once:true });
+      });
     }
     nextBtn.onclick = ()=>{ if(cur<steps.length-1){cur++;render();} };
     backBtn.onclick = ()=>{ if(cur>0){cur--;render();} };
