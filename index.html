@@ -52,18 +52,6 @@
   .sub{font-size:var(--t-sm);color:var(--neon-yellow);font-weight:700;margin-top:6px;font-family:'Noto Sans KR',sans-serif;}
 
   /* ---- name/date meta ---- */
-  .meta{display:flex;gap:12px;flex-wrap:wrap;margin:18px 0 6px;}
-  .meta .field{
-    flex:1 1 200px;background:rgba(0,0,0,.3);border:2px solid var(--border-glow);border-radius:14px;
-    padding:12px 16px;display:flex;align-items:center;gap:10px;
-  }
-  .meta label{font-family:'Press Start 2P',cursive;color:var(--neon-blue);font-size:var(--px-label);white-space:nowrap;text-shadow:var(--retro-shadow);}
-  .meta input{
-    border:none;border-bottom:2px solid var(--border-glow);background:transparent;flex:1;
-    font-family:'Noto Sans',sans-serif;font-size:var(--t-base);color:#fff;padding:4px 2px;outline:none;min-width:0;
-  }
-  .meta input:focus{border-bottom-color:var(--neon-blue);}
-  .meta input::placeholder{color:rgba(255,255,255,.35);}
 
   /* ---- progress ---- */
   .progress-bar{
@@ -78,7 +66,7 @@
   .progress-text{font-family:'Press Start 2P',cursive;font-weight:400;color:var(--neon-yellow);font-size:var(--px-label);text-shadow:var(--retro-shadow);}
 
   /* ---- section headers ---- */
-  .section{margin-top:30px;}
+  .section{margin-top:34px;}
   .part-head{
     display:flex;align-items:center;gap:12px;
     background:linear-gradient(135deg,#2a2a4a 0%,#1a1a2e 100%);color:#fff;
@@ -99,7 +87,8 @@
   /* ---- instruction / pills ---- */
   .instr{
     font-size:var(--t-base);color:var(--ink);font-weight:500;background:rgba(65,192,255,.1);
-    border:2px solid var(--neon-blue);border-radius:14px;padding:12px 16px;margin:10px 0 4px;
+    border:2px solid var(--neon-blue);border-radius:14px;padding:14px 16px;margin:12px 0 4px;
+    line-height:1.7;
   }
   .instr b{color:var(--neon-yellow);}
   .practice-pill{
@@ -122,10 +111,10 @@
   /* ---- cards ---- */
   .card{
     background:var(--card-bg);border:2px solid var(--border-glow);border-radius:18px;
-    padding:22px 18px 18px;margin-top:20px;position:relative;overflow:hidden;
+    padding:26px 18px 18px;margin-top:28px;position:relative;
     box-shadow:0 0 30px rgba(0,0,0,.25);
   }
-  .card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  .card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:18px 18px 0 0;
     background:linear-gradient(90deg,var(--neon-blue),var(--neon-pink),var(--neon-yellow));}
   .rec-card{border-color:var(--neon-purple);box-shadow:0 0 30px rgba(183,148,246,.2);}
   .qtag{
@@ -134,7 +123,7 @@
     font-size:var(--px-label);text-shadow:var(--retro-shadow);box-shadow:0 3px 0 rgba(0,0,0,.4);z-index:2;
   }
   .rec-card .qtag{background:linear-gradient(135deg,var(--neon-purple),#7a52cc);}
-  .qtext{font-size:var(--t-lg);font-weight:700;margin:10px 0 4px;color:#fff;}
+  .qtext{font-size:var(--t-lg);font-weight:700;margin:6px 0 4px;color:#fff;}
   .qtext .kr{font-family:'Noto Sans KR',sans-serif;font-weight:700;color:var(--neon-yellow);}
   .qtext b{color:var(--neon-yellow);}
 
@@ -294,7 +283,6 @@
   .gate-btn:disabled{opacity:.6;cursor:not-allowed;}
   .gate-err{color:var(--neon-red);font-weight:700;font-size:var(--t-sm);margin-top:12px;min-height:1.2em;}
   #appWrap{display:none;}
-  .gate-foot{font-size:var(--t-sm);color:var(--ink-soft);margin-top:16px;font-weight:600;}
   .logout-btn{
     position:fixed;top:10px;right:10px;z-index:50;font-family:'Press Start 2P',cursive;font-size:var(--px-micro);
     background:rgba(0,0,0,.5);color:var(--neon-pink);border:2px solid var(--neon-pink);border-radius:8px;
@@ -328,10 +316,6 @@
   <div class="title-card">
     <h1>Easy Korean<br>Speaking Test</h1>
     <div class="sub">한국어 말하기 시험</div>
-  </div>
-  <div class="meta">
-    <div class="field"><label>이름 Name</label><input type="text" placeholder="write your name~"></div>
-    <div class="field"><label>날짜 Date</label><input type="text" placeholder="today's date"></div>
   </div>
   <div class="progress-bar"><div class="progress-fill" id="bar"></div></div>
   <div class="progress-text" id="ptext" style="text-align:center;"></div>
